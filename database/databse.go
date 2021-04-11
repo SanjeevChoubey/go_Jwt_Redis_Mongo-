@@ -3,6 +3,7 @@ package database
 import (
 	"context"
 	"log"
+	"os"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -10,10 +11,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
+var MONOGO_URL string = os.Getenv("MONOGO_URL")
+
 func DBinstance() *mongo.Client {
-	client, err := mongo.NewClient(options.Client().ApplyURI(
-		"mongodb+srv://mongosanjeev:kumar92@cluster0.merub.mongodb.net/userAuth?retryWrites=true&w=majority",
-	))
+	client, err := mongo.NewClient(options.Client().ApplyURI(MONOGO_URL))
 	if err != nil {
 		log.Fatal(err)
 	}
