@@ -1,0 +1,8 @@
+POST http://localhost:8080/user/signup HTTP/1.1
+
+{
+    "first_name":"sanjeev",
+    "last_name":"Choubey",
+    "email":"abcdef@gmail.Com",
+    "phone":"1234567890"
+}
